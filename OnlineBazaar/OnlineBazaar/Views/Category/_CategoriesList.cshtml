@@ -1,0 +1,51 @@
+﻿@using OnlineBazaar.Resources
+@model List<OnlineBazaar.Models.CategoryViewModel>
+
+<table class="table table-bordered" id="categories-table">
+    <thead>
+        <tr>
+            <th hidden>ID</th>
+            <th>@OnlineBazaarResources.CategoryName</th>
+            <th>@OnlineBazaarResources.CategoryDesc</th>
+            <th>@OnlineBazaarResources.ActionsText</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (OnlineBazaar.Models.CategoryViewModel category in Model)
+        {
+            <tr>
+                <td hidden>
+                    @category.ID
+                </td>
+                <td>
+                    @category.Path
+                </td>
+                <td class="desc">
+                    @GenDescColumn(category.Description)                    
+                </td>
+                <td>
+                    <a href="#" class="btn btn-default btn-icon icon-left btn-xs">
+                        <i class="entypo-pencil"></i>
+                        @OnlineBazaarResources.EditText
+                    </a>
+                    <a href="@Url.Action("Delete", "Category", new { category.ID })" class="btn btn-danger btn-icon icon-left btn-xs delete">
+                        <i class="entypo-cancel"></i>
+                        @OnlineBazaarResources.DeleteText
+                    </a>
+                </td>
+            </tr>
+         }
+    </tbody>
+</table>
+
+@helper GenDescColumn(String desc)
+{
+    if (!String.IsNullOrEmpty(desc) && desc.Length > 100)
+    {
+        <div class="long-desc" data-content="@desc">@String.Format("{0}...", desc.Substring(0, 100))</div>
+    }
+    else
+    {
+        <div>@desc</div>
+    }
+}

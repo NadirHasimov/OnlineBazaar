@@ -1,0 +1,14 @@
+﻿@model OnlineBazaar.Models.CategoryViewModel
+
+@{
+    ViewBag.Title = "Add";
+}
+<div class="panel panel-default mb0">
+    <div class="panel-heading ui-draggable-handle">
+        <h3 class="panel-title"><strong>Add </strong> Category</h3>
+    </div>
+    @using (Html.BeginForm("Add", "Category", FormMethod.Post, Model))
+    {
+        @Html.Partial("_EditAdd",Model)
+    }
+</div>

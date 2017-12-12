@@ -1,0 +1,94 @@
+﻿@using OnlineBazaar.Resources
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>@ViewBag.Title</title>
+
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link href="~/Scripts/theme/jquery-ui/jquery-ui.css" rel="stylesheet" />
+
+    <link href="~/Content/theme/css/neon-core.css" rel="stylesheet" />
+    <link href="~/Content/theme/css/neon-theme.css" rel="stylesheet" />
+    <link href="~/Content/theme/css/neon-forms.css" rel="stylesheet" />
+    <link href="~/Content/theme/css/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/theme/font-icons/entypo/css/entypo.css" rel="stylesheet" />
+
+    @RenderSection("Styles", required: false)
+
+    <link href="~/Content/custom/css/common.css" rel="stylesheet" />
+
+    <script src="~/Scripts/theme/jquery-1.11.3.min.js"></script>    
+    <script src="~/Scripts/theme/jquery-ui/jquery-ui.min.js"></script>
+</head>
+<body class="page-body">
+    @{
+        int collapsed = 0;
+        if (Request.Cookies["sidebarCollapsed"] != null)
+        {
+            collapsed = int.Parse(Request.Cookies["sidebarCollapsed"].Value);
+        }
+    }
+    <div class="page-container @(collapsed == 1 ? "sidebar-collapsed" : "")">
+        <div class="sidebar-menu">
+            <header class="logo-env">
+                <!-- logo -->
+                <div class="logo">
+                    @*
+                      <a href="index.html">
+                            <img src="assets/images/logo@2x.png" width="120" alt="" />
+                      </a>
+                    *@
+                </div>
+                <!-- logo collapse icon -->
+                <div class="sidebar-collapse">
+                    <a href="#" class="sidebar-collapse-icon with-animation" data-rel="collapse-sidebar">
+                        <!-- add class "with-animation" if you want sidebar to have animation during expanding/collapsing transition -->
+                        <i class="entypo-menu"></i>
+                    </a>
+                </div>
+                <!-- open/close menu icon (do not remove if you want to enable menu on mobile devices) -->
+                <div class="sidebar-mobile-menu visible-xs with-animation">
+                    <a href="#" class="">
+                        <!-- add class "with-animation" to support animation -->
+                        <i class="entypo-menu"></i>
+                    </a>
+                </div>
+            </header>
+            <ul id="main-menu" class="">
+                <li>
+                    <a>
+                        <i class="entypo-book"></i>
+                        <span>@OnlineBazaarResources.CatalogText</span>
+                    </a>
+                    <ul>
+                        <li>
+                            <a href="@Url.Action("Index", "Category")">
+                                <i class="entypo-record"></i>
+                                <span>@OnlineBazaarResources.CategoriesText</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="main-content">
+            @RenderBody()
+        </div>
+    </div>
+
+    <script src="~/Scripts/theme/bootstrap.min.js"></script>
+    <script src="~/Scripts/theme/joinable.js"></script>
+    <script src="~/Scripts/theme/resizeable.js"></script>
+    <script src="~/Scripts/theme/neon-api.js"></script>
+    <script src="~/Scripts/theme/neon-custom.js"></script>
+    <script src="~/Scripts/theme/neon-demo.js"></script>
+    <script src="~/Scripts/theme/toastr.js"></script>
+    <script src="~/Scripts/theme/TweenMax.min.js"></script>
+    <script src="~/Scripts/theme/jquery.cookie.js"></script>
+    <script src="~/Scripts/custom/common.js"></script>
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

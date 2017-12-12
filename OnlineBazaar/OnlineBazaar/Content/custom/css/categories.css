@@ -1,0 +1,11 @@
+﻿.row {
+    margin: 0px;
+}
+
+.table-container {
+    margin-top: 20px;
+}
+
+td.desc .popover {
+    max-width: 50% !important;
+}

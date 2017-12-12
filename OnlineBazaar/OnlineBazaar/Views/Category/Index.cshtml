@@ -1,0 +1,39 @@
+﻿@using OnlineBazaar.Resources
+@model List<OnlineBazaar.Models.CategoryViewModel>
+@{
+    ViewBag.Title = "Categories | Catalog | Online Bazaar";
+}
+
+@section Styles{
+    <link href="~/Content/theme/css/dataTables.jqueryui.css" rel="stylesheet" />
+    <link href="~/Content/custom/css/categories.css" rel="stylesheet" />
+}
+
+@section Scripts{
+    <script src="~/scripts/theme/jquery.dataTables.min.js"></script>
+    <script src="~/scripts/theme/dataTables.jqueryui.js"></script>
+    <script src="~/Scripts/custom/categories.js"></script>
+}
+
+<div class="row">
+    <div class="pull-right">
+        <a href="#" class="btn btn-success btn-icon icon-left">
+            <i class="entypo-list-add"></i>
+            @OnlineBazaarResources.NewCategoryText
+        </a>
+    </div>
+</div>
+
+<div class="row table-container" id="categories-table-container">
+    <div class="panel panel-default" data-collapsed="0">
+        <div class="panel-heading">
+            <div class="panel-title">@OnlineBazaarResources.CategoriesTitle.ToUpper()</div>
+            <div class="panel-options">
+                <a href="@Url.Action("CategoriesList", "Category")" id="reload-categories"><i class="entypo-arrows-ccw"></i></a>
+            </div>
+        </div>
+        <div class="panel-body">
+            @Html.Partial("_CategoriesList", Model)
+        </div>
+    </div>
+</div>

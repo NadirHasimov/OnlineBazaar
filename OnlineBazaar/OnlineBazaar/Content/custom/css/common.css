@@ -1,0 +1,135 @@
+﻿body {
+    position: relative;
+}
+
+    body.loaded {
+        -webkit-perspective: none;
+        -moz-perspective: none;
+        perspective: none;
+    }
+
+/* Styles for validation helpers */
+.field-validation-error {
+    color: #f00;
+    font-size: 11px;
+    margin-top: 5px;
+    display: inline-block;
+}
+
+.field-validation-valid {
+    display: none;
+}
+
+.input-validation-error {
+    border: 1px solid #f00 !important;
+}
+
+.validation-summary-errors {
+    font-weight: bold;
+    color: #f00;
+}
+
+.validation-summary-valid {
+    display: none;
+}
+
+/* Styles for popover */
+.popover {
+    background: #f0f0f1;
+    border: 1px solid #ebebeb;
+    border-radius: 4px;
+    box-shadow: 0px 5px 10px 0px rgba(0,0,0,0.20);
+    font-size: 12px;
+}
+
+    .popover .arrow {
+        display: none;
+    }
+
+/*Styles for panel */
+.panel .panel-heading > .panel-title {
+    padding: 15px 20px;
+    font-weight: bold;
+}
+
+.panel .panel-heading > .panel-options {
+    padding-right: 20px;
+}
+
+    .panel .panel-heading > .panel-options a {
+        margin-top: 15px;
+    }
+
+.panel .panel-body {
+    padding: 0px !important;
+}
+
+.table-container .panel .dataTables_wrapper .ui-toolbar {
+    padding: 0;
+    background: none;
+    border: none !important;
+}
+
+.table-container .panel .dataTables_wrapper .dataTables_length,
+.table-container .panel .dataTables_wrapper .dataTables_filter {
+    border: none !important;
+    border-radius: 0px !important;
+    height: 50px;
+}
+
+.table-container .panel .dataTables_wrapper .dataTables_length {
+    padding: 16px 20px;
+}
+
+    .table-container .panel .dataTables_wrapper .dataTables_length label {
+        margin: 0px;
+    }
+
+.table-container .panel .dataTables_wrapper .dataTables_filter {
+    padding: 10px 20px;
+}
+
+    .table-container .panel .dataTables_wrapper .dataTables_filter label {
+        margin: 0px;
+    }
+
+        .table-container .panel .dataTables_wrapper .dataTables_filter label input {
+            height: 30px;
+            margin: 0px;
+        }
+
+.table-container .panel .dataTables_wrapper .dataTables_info,
+.table-container .panel .dataTables_wrapper .dataTables_paginate {
+    border: none !important;
+    background: transparent;
+    height: 50px;
+}
+
+.table-container .panel .dataTables_wrapper .dataTables_info {
+    padding: 10px 20px;
+}
+
+.table-container .panel table.dataTable {
+    border: none !important;  
+    /*border-collapse: collapse;
+    border-spacing: 0;*/
+    font-size: 12px;    
+}
+
+.table > thead > tr > th,
+.table > thead > tr > td,
+.table > tbody > tr > th,
+.table > tbody > tr > td {
+    padding: 8px;
+    color: black;
+}
+
+.table > tbody > tr > th,
+.table > tbody > tr > td {
+    border: 1px solid #ebebeb !important;
+}
+
+.table > thead > tr > th {
+    background: #f0f0f1 !important;
+    font-weight: bold;
+}

@@ -1,0 +1,74 @@
+﻿@model OnlineBazaar.Models.CategoryViewModel
+
+<div class="panel-body" style="font-size:medium">
+    <div class="form-group pt20">
+        <label class="col-md-3 col-xs-12 control-label align-right pt7">Name</label>
+        <div class="col-md-6 col-xs-12">
+            <div class="input-group">
+                <div class="input-group-addon">
+                    <i class="entypo-pencil"></i>
+                </div>
+                @Html.Editor("CategoryName")
+                @*@Html.EditorFor(x =>x.CategoryName)*@
+            </div><span class="help-block">Name field sample</span><span>@Html.ValidationMessageFor(x => x.CategoryName)</span>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <div class="form-group">
+        <label class="col-md-3 col-xs-12 control-label align-right pt7">Description</label>
+        <div class="col-md-6 col-xs-12">
+            <div class="input-group">
+                <div class="input-group-addon">
+                    <i class="entypo-pencil"></i>
+                </div>
+                @Html.TextArea("Description")
+                @*@Html.TextAreaFor(x => x.Description)*@
+            </div> <span class="help-block">Description field sample</span>@*<span>@Html.ValidationMessageFor(x => x.Description)</span>*@
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <div class="form-group">
+        <label class="col-md-3 col-xs-12 control-label align-right pt7">Display order</label>
+        <div class="col-md-6 col-xs-12">
+            <div class="input-group">
+                <div class="input-group-addon">
+                    <i class="entypo-pencil"></i>
+                </div>
+                @Html.Editor("DisplayOrder")
+                @*@Html.EditorFor(x => x.DisplayOrder)*@
+            </div> <span class="help-block">Display order field sample</span><span>@Html.ValidationMessageFor(x => x.DisplayOrder)</span>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <div class="form-group">
+        <label class="col-md-3 col-xs-12 control-label align-right pt7">Parent Category</label>
+        <div class="col-md-6 col-xs-12">
+            <div class="input-group">
+                <div class="input-group-addon">
+                    <i class="entypo-pencil"></i>
+                </div>
+                @Html.DropDownListFor(m => m.ParentID,Model.selectListItem)
+                @*@Html.EditorFor(x => x.ParentID)*@
+            </div> <span class="help-block">Parent category field sample</span><span>@Html.ValidationMessageFor(x => x.ParentID)</span>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <div class="form-group;font-family:Arial;font-size:inherit">
+        @*<span style="color:green">@ViewBag.Message</span>
+            <span style="color:red;font-family:Arial;font-size:inherit">@ViewBag.ErrorMessage</span>*@
+    </div>
+</div>
+<div class="panel-footer">
+    @*<input type="reset" value="Clear Form" name="btnReset" class="btn btn-default pull-left" />*@
+    <div class="input-group   pull-left">
+        <button type="submit" id="submit" name="btnSubmit" class="btn btn-green" style="font-size:medium">
+            <i class="entypo-doc-text"></i>
+            Save
+        </button>
+    </div>
+    <div class="input-group   pull-right">
+        <button type="reset" id="submit" name="btnSubmit" class="btn btn-blue" style="font-size:medium">
+            Clear Form
+        </button>
+    </div>
+</div>
