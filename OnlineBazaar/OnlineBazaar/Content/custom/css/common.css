@@ -37,7 +37,6 @@
 .popover {
     background: #f0f0f1;
     border: 1px solid #ebebeb;
-    border-radius: 4px;
     box-shadow: 0px 5px 10px 0px rgba(0,0,0,0.20);
     font-size: 12px;
 }
@@ -47,89 +46,138 @@
     }
 
 /*Styles for panel */
-.panel .panel-heading > .panel-title {
-    padding: 15px 20px;
-    font-weight: bold;
-}
-
-.panel .panel-heading > .panel-options {
-    padding-right: 20px;
-}
-
-    .panel .panel-heading > .panel-options a {
-        margin-top: 15px;
-    }
-
-.panel .panel-body {
-    padding: 0px !important;
-}
-
-.table-container .panel .dataTables_wrapper .ui-toolbar {
-    padding: 0;
-    background: none;
+.panel .panel-heading {
     border: none !important;
 }
 
-.table-container .panel .dataTables_wrapper .dataTables_length,
-.table-container .panel .dataTables_wrapper .dataTables_filter {
+    .panel .panel-heading > .panel-title {
+        padding: 15px 20px;
+        font-weight: bold;
+    }
+
+    .panel .panel-heading > .panel-options {
+        padding-right: 20px;
+    }
+
+        .panel .panel-heading > .panel-options a {
+            margin-top: 15px;
+        }
+
+.table-container .panel {
     border: none !important;
-    border-radius: 0px !important;
-    height: 50px;
 }
 
-.table-container .panel .dataTables_wrapper .dataTables_length {
-    padding: 16px 20px;
-}
-
-    .table-container .panel .dataTables_wrapper .dataTables_length label {
-        margin: 0px;
+    .table-container .panel .panel-body {
+        padding: 0px !important;
     }
 
-.table-container .panel .dataTables_wrapper .dataTables_filter {
-    padding: 10px 20px;
-}
-
-    .table-container .panel .dataTables_wrapper .dataTables_filter label {
-        margin: 0px;
+    .table-container .panel .dataTables_wrapper .ui-toolbar {
+        padding: 0;
+        background: none;
+        border: none !important;
     }
 
-        .table-container .panel .dataTables_wrapper .dataTables_filter label input {
-            height: 30px;
+    .table-container .panel .dataTables_wrapper .dataTables_length,
+    .table-container .panel .dataTables_wrapper .dataTables_filter {
+        border: none !important;
+        border-radius: 0px !important;
+        height: 50px;
+        color: black !important;
+    }
+
+    .table-container .panel .dataTables_wrapper .dataTables_length {
+        border-left: 1px solid #ebebeb !important;
+        padding: 16px 20px;
+    }
+
+        .table-container .panel .dataTables_wrapper .dataTables_length label {
             margin: 0px;
         }
 
-.table-container .panel .dataTables_wrapper .dataTables_info,
-.table-container .panel .dataTables_wrapper .dataTables_paginate {
-    border: none !important;
-    background: transparent;
-    height: 50px;
-}
+    .table-container .panel .dataTables_wrapper .dataTables_filter {
+        border-right: 1px solid #ebebeb !important;
+        padding: 10px 20px;
+    }
 
-.table-container .panel .dataTables_wrapper .dataTables_info {
-    padding: 10px 20px;
-}
+        .table-container .panel .dataTables_wrapper .dataTables_filter label {
+            margin: 0px;
+        }
 
-.table-container .panel table.dataTable {
-    border: none !important;  
-    /*border-collapse: collapse;
-    border-spacing: 0;*/
-    font-size: 12px;    
-}
+            .table-container .panel .dataTables_wrapper .dataTables_filter label input {
+                height: 30px;
+                margin: 0px;
+            }
 
+    .table-container .panel .dataTables_wrapper .dataTables_info,
+    .table-container .panel .dataTables_wrapper .dataTables_paginate {
+        border: none !important;
+        border-radius: 0px !important;
+        background: transparent !important;
+        height: 50px;
+        color: black !important;
+    }
+
+    .table-container .panel .dataTables_wrapper .dataTables_info,
+    .table-container .panel .dataTables_wrapper .dataTables_paginate {
+        padding: 10px 0px;
+    }
+
+    .table-container .panel .dataTables_wrapper .dataTables_paginate {
+        margin: 0px;
+    }
+
+        .table-container .panel .dataTables_wrapper .dataTables_paginate .fg-button {
+            background: #f0f0f1 !important;
+            border: none !important;
+            margin: 0px;
+            font-weight: normal;
+            font-size: 12px;
+            border-radius: 0px;
+            padding: 8px 10px;
+        }
+
+        .table-container .panel .dataTables_wrapper .dataTables_paginate > .fg-button:first-child {
+            border-top-left-radius: 3px;
+            border-bottom-left-radius: 3px;
+            border-right: 1px solid #ebebeb !important;
+        }
+
+        .table-container .panel .dataTables_wrapper .dataTables_paginate > .fg-button:last-child {
+            border-top-right-radius: 3px;
+            border-bottom-right-radius: 3px;
+            border-left: 1px solid #ebebeb !important;
+        }
+
+        .table-container .panel .dataTables_wrapper .dataTables_paginate .fg-button.ui-state-disabled {
+            opacity: unset !important;
+            cursor: not-allowed !important;
+        }
+
+        .table-container .panel .dataTables_wrapper .dataTables_paginate span .fg-button.ui-state-disabled {
+            cursor: default !important;
+            color: red !important;
+        }
+
+    .table-container .panel table.dataTable {
+        border: none !important;
+        border-collapse: collapse;
+        font-size: 12px;
+    }
+
+    .table-container .panel .table > thead > tr > th {
+        background: #f0f0f1 !important;
+        font-weight: bold;
+    }
+       
 .table > thead > tr > th,
 .table > thead > tr > td,
 .table > tbody > tr > th,
 .table > tbody > tr > td {
     padding: 8px;
     color: black;
-}
-
-.table > tbody > tr > th,
-.table > tbody > tr > td {
     border: 1px solid #ebebeb !important;
 }
-
-.table > thead > tr > th {
-    background: #f0f0f1 !important;
-    font-weight: bold;
+.page-container .sidebar-menu #main-menu li.active > a {
+    background-color: #2b303a;
+    color: #fff;
 }

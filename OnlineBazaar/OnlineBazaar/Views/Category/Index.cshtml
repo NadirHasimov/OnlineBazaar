@@ -1,7 +1,7 @@
 ﻿@using OnlineBazaar.Resources
 @model List<OnlineBazaar.Models.CategoryViewModel>
 @{
-    ViewBag.Title = "Categories | Catalog | Online Bazaar";
+    ViewBag.Title = OnlineBazaarResources.CategoriesTitle;
 }
 
 @section Styles{
@@ -12,14 +12,18 @@
 @section Scripts{
     <script src="~/scripts/theme/jquery.dataTables.min.js"></script>
     <script src="~/scripts/theme/dataTables.jqueryui.js"></script>
+    <script type="text/javascript">
+        var success = '@(TempData["success"])';
+        var message ='@(TempData["message"])';
+    </script>
     <script src="~/Scripts/custom/categories.js"></script>
 }
 
 <div class="row">
     <div class="pull-right">
-        <a href="#" class="btn btn-success btn-icon icon-left">
+        <a href="@Url.Action("Edit","Category")" class="btn btn-success btn-icon icon-left">
             <i class="entypo-list-add"></i>
-            @OnlineBazaarResources.NewCategoryText
+            @OnlineBazaarResources.NewCategoryButtonText
         </a>
     </div>
 </div>

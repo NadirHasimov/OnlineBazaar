@@ -7,7 +7,7 @@
             <th hidden>ID</th>
             <th>@OnlineBazaarResources.CategoryName</th>
             <th>@OnlineBazaarResources.CategoryDesc</th>
-            <th>@OnlineBazaarResources.ActionsText</th>
+            <th>@OnlineBazaarResources.Actions</th>
         </tr>
     </thead>
     <tbody>
@@ -24,13 +24,13 @@
                     @GenDescColumn(category.Description)                    
                 </td>
                 <td>
-                    <a href="#" class="btn btn-default btn-icon icon-left btn-xs">
+                    <a href="@Url.Action("Edit","Category",new { category.ID})" class="btn btn-default btn-icon icon-left btn-xs">
                         <i class="entypo-pencil"></i>
-                        @OnlineBazaarResources.EditText
+                        @OnlineBazaarResources.EditButtonText
                     </a>
                     <a href="@Url.Action("Delete", "Category", new { category.ID })" class="btn btn-danger btn-icon icon-left btn-xs delete">
                         <i class="entypo-cancel"></i>
-                        @OnlineBazaarResources.DeleteText
+                        @OnlineBazaarResources.DeleteButtonText
                     </a>
                 </td>
             </tr>

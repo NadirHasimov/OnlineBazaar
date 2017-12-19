@@ -63,9 +63,9 @@ namespace OnlineBazaar.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Actions.
         /// </summary>
-        public static string ActionsText {
+        public static string Actions {
             get {
-                return ResourceManager.GetString("ActionsText", resourceCulture);
+                return ResourceManager.GetString("Actions", resourceCulture);
             }
         }
         
@@ -97,6 +97,15 @@ namespace OnlineBazaar.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Create.
+        /// </summary>
+        public static string CategoryCreateViewBtn {
+            get {
+                return ResourceManager.GetString("CategoryCreateViewBtn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Description.
         /// </summary>
         public static string CategoryDesc {
@@ -106,11 +115,101 @@ namespace OnlineBazaar.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Description.
+        /// </summary>
+        public static string CategoryDescriptionField {
+            get {
+                return ResourceManager.GetString("CategoryDescriptionField", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Display order.
+        /// </summary>
+        public static string CategoryDisplayOrderField {
+            get {
+                return ResourceManager.GetString("CategoryDisplayOrderField", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Save changes.
+        /// </summary>
+        public static string CategoryEditViewBtn {
+            get {
+                return ResourceManager.GetString("CategoryEditViewBtn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Name.
         /// </summary>
         public static string CategoryName {
             get {
                 return ResourceManager.GetString("CategoryName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Name.
+        /// </summary>
+        public static string CategoryNameField {
+            get {
+                return ResourceManager.GetString("CategoryNameField", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Parent.
+        /// </summary>
+        public static string CategoryParentField {
+            get {
+                return ResourceManager.GetString("CategoryParentField", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error occured while creating category! Please try again..
+        /// </summary>
+        public static string CreateCategoryFailureMessage {
+            get {
+                return ResourceManager.GetString("CreateCategoryFailureMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Create category | Catalog | Online Bazaar.
+        /// </summary>
+        public static string CreateCategoryPageTittle {
+            get {
+                return ResourceManager.GetString("CreateCategoryPageTittle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Create category.
+        /// </summary>
+        public static string CreateCategoryPanelTittle {
+            get {
+                return ResourceManager.GetString("CreateCategoryPanelTittle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Successfully created!.
+        /// </summary>
+        public static string CreateCategorySuccessMessage {
+            get {
+                return ResourceManager.GetString("CreateCategorySuccessMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Delete.
+        /// </summary>
+        public static string DeleteButtonText {
+            get {
+                return ResourceManager.GetString("DeleteButtonText", resourceCulture);
             }
         }
         
@@ -142,29 +241,83 @@ namespace OnlineBazaar.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Delete.
+        ///   Looks up a localized string similar to The number must be greater than zero!.
         /// </summary>
-        public static string DeleteText {
+        public static string DisplayOrderRangeErrorMessage {
             get {
-                return ResourceManager.GetString("DeleteText", resourceCulture);
+                return ResourceManager.GetString("DisplayOrderRangeErrorMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Display order field required!.
+        /// </summary>
+        public static string DisplayOrderRequiredMessage {
+            get {
+                return ResourceManager.GetString("DisplayOrderRequiredMessage", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Edit.
         /// </summary>
-        public static string EditText {
+        public static string EditButtonText {
             get {
-                return ResourceManager.GetString("EditText", resourceCulture);
+                return ResourceManager.GetString("EditButtonText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Edit Category | Catalog | Online Bazaar.
+        /// </summary>
+        public static string EditCategoryPageTittle {
+            get {
+                return ResourceManager.GetString("EditCategoryPageTittle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Edit category.
+        /// </summary>
+        public static string EditCategoryPanelTittle {
+            get {
+                return ResourceManager.GetString("EditCategoryPanelTittle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Name field required!.
+        /// </summary>
+        public static string NameRequiredMessage {
+            get {
+                return ResourceManager.GetString("NameRequiredMessage", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to New category.
         /// </summary>
-        public static string NewCategoryText {
+        public static string NewCategoryButtonText {
             get {
-                return ResourceManager.GetString("NewCategoryText", resourceCulture);
+                return ResourceManager.GetString("NewCategoryButtonText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error occured while updating this category! Please try again..
+        /// </summary>
+        public static string UpdateCategoryFailureMessage {
+            get {
+                return ResourceManager.GetString("UpdateCategoryFailureMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Successfully updated!.
+        /// </summary>
+        public static string UpdateCategorySuccessMessage {
+            get {
+                return ResourceManager.GetString("UpdateCategorySuccessMessage", resourceCulture);
             }
         }
     }

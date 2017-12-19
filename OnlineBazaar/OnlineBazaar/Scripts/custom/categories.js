@@ -2,10 +2,13 @@
 $(document).ready(function () {
     createDataTable();
     createEventHandlers();
+    showNotification();
 });
 
 function createDataTable() {
     categoriesTable = $('#categories-table').dataTable({
+        "lengthMenu": [[5, 10, 25, 50, -1], [5, 10, 25, 50, "All"]],
+        "pageLength": 10,
         "destroy": true,
         "ordering": false,
         "language": {
@@ -19,6 +22,9 @@ function createDataTable() {
             { "width": "50%" },
             { "width": "15%" }
         ],
+        "CreatedRow": function (nRow, aData, iDataIndex) {
+            $(nRow).children("td").css("white-space", "nowrap");
+        },
         "drawCallback": function (settings) {
             enableDescPopover();
         }
@@ -66,4 +72,16 @@ function createEventHandlers() {
             }
         });
     });
+}
+
+function showNotification() {
+    if (message) {
+        if (success) {
+            showSuccessNotification(message)
+        }
+        else {
+            showErrorNotification(message);
+        }
+    }
+
 }

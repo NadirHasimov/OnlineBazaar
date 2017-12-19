@@ -99,9 +99,13 @@
     <Content Include="Content\theme\css\bootstrap-theme.min.css" />
     <Content Include="Content\theme\css\bootstrap.css" />
     <Content Include="Content\theme\css\dataTables.jqueryui.css" />
+    <Content Include="Content\theme\css\daterangepicker-bs3.css" />
+    <Content Include="Content\theme\css\jquery.selectBoxIt.css" />
     <Content Include="Content\theme\css\neon-core.css" />
     <Content Include="Content\theme\css\neon-forms.css" />
     <Content Include="Content\theme\css\neon-theme.css" />
+    <Content Include="Content\theme\css\select2-bootstrap.css" />
+    <Content Include="Content\theme\css\select2.css" />
     <Content Include="Content\theme\font-icons\entypo\css\animation.css" />
     <Content Include="Content\theme\font-icons\entypo\css\entypo-codes.css" />
     <Content Include="Content\theme\font-icons\entypo\css\entypo-embedded.css" />
@@ -119,6 +123,7 @@
     <Content Include="Global.asax" />
     <Content Include="Scripts\custom\categories.js" />
     <Content Include="Scripts\custom\common.js" />
+    <Content Include="Scripts\theme\daterangepicker.js" />
     <Content Include="Scripts\theme\jquery-1.11.3.min.js" />
     <Content Include="Scripts\theme\jquery-ui\images\ui-bg_diagonals-thick_18_b81900_40x40.png" />
     <Content Include="Scripts\theme\jquery-ui\images\ui-bg_diagonals-thick_20_666666_40x40.png" />
@@ -136,6 +141,7 @@
     <Content Include="Scripts\theme\jquery-ui\images\ui-icons_ffffff_256x240.png" />
     <Content Include="Scripts\theme\jquery-ui\jquery-ui.css" />
     <Content Include="Scripts\theme\jquery-ui\jquery-ui.min.js" />
+    <Content Include="Scripts\theme\jquery.selectBoxIt.min.js" />
     <Content Include="Scripts\theme\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Scripts\theme\bootstrap.min.js" />
     <Content Include="Scripts\theme\dataTables.buttons.min.js" />
@@ -152,13 +158,13 @@
     <Content Include="Scripts\theme\neon-custom.js" />
     <Content Include="Scripts\theme\neon-demo.js" />
     <Content Include="Scripts\theme\resizeable.js" />
+    <Content Include="Scripts\theme\select2.min.js" />
     <Content Include="Scripts\theme\toastr.js" />
     <Content Include="Scripts\theme\TweenMax.min.js" />
     <Content Include="Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Category\Index.cshtml" />
     <Content Include="Views\Category\Add.cshtml" />
-    <Content Include="Views\Category\Edit.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Category\_EditAdd.cshtml" />
   </ItemGroup>
@@ -166,14 +172,14 @@
     <Compile Include="AppConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
-    <Compile Include="DALC\Category\CategoryDALC.cs" />
-    <Compile Include="DALC\SqlQueries\SqlQueries.cs" />
+    <Compile Include="DALC\CategoryDALC.cs" />
+    <Compile Include="DALC\SqlQueries.cs" />
     <Compile Include="DomainModels\Category\CategoryModel.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Lib\StringExtentions.cs" />
-    <Compile Include="Models\CategoryViewModel.cs" />
+    <Compile Include="Models\Category\CategoryViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resources\OnlineBazaarResources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -198,6 +204,7 @@
     <None Include="packages.config" />
     <Content Include="Views\Category\Test.cshtml" />
     <Content Include="Views\Category\_CategoriesList.cshtml" />
+    <Content Include="Views\Category\Edit.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

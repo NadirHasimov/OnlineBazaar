@@ -18,6 +18,60 @@ namespace OnlineBazaar.Controllers
             return View(model);
         }
 
+        public ActionResult Edit(int id = 0)
+        {
+            CategoryViewModel model = new CategoryViewModel();
+            model.ParentCategories = CategoryDALC.GetParents();
+            if (id == 0)
+            {
+                return View(model);
+            }
+            else
+            {
+                model = MapToCategoryViewModel(CategoryDALC.GetByID(id));
+                model.ParentCategories = CategoryDALC.GetParents();
+                return View(model);
+            }
+        }
+        [HttpPost]
+        public ActionResult Edit(CategoryViewModel viewModel)
+        {
+            bool success = false;
+            string message;
+            if (!ModelState.IsValid)
+            {
+                return View();
+            }
+            CategoryModel model = MapToCategoryModel(viewModel);
+            if (model.ID == 0)
+            {
+                if (CategoryDALC.Create(model))
+                {
+                    success = true;
+                    message = OnlineBazaarResources.CreateCategorySuccessMessage;
+                }
+                else
+                {
+                    message = OnlineBazaarResources.CreateCategoryFailureMessage;
+                }
+            }
+            else
+            {
+                if (CategoryDALC.Update(model))
+                {
+                    success = true;
+                    message = OnlineBazaarResources.UpdateCategorySuccessMessage;
+                }
+                else
+                {
+                    message = OnlineBazaarResources.UpdateCategoryFailureMessage;
+                }
+            }
+            TempData["success"] = success;
+            TempData["message"] = message;
+            return RedirectToAction("/Index");
+        }
+
         [HttpPost]
         public ActionResult Delete(int id)
         {
@@ -49,6 +103,15 @@ namespace OnlineBazaar.Controllers
             return PartialView("_CategoriesList", model);
         }
 
+        public ActionResult CheckCategoryNameExists(string name,int ID)
+        {
+            if (CategoryDALC.CheckNameExists(name,ID))
+            {
+                return Json("Category name already exists!", JsonRequestBehavior.AllowGet);
+            }
+            return Json(true, JsonRequestBehavior.AllowGet);
+        }
+
         private CategoryViewModel MapToCategoryViewModel(CategoryModel category)
         {
             return new CategoryViewModel()
@@ -57,6 +120,17 @@ namespace OnlineBazaar.Controllers
                 Name = category.Name,
                 ParentID = category.ParentID,
                 Path = category.Path,
+                DisplayOrder = category.DisplayOrder,
+                Description = category.Description
+            };
+        }
+        private CategoryModel MapToCategoryModel(CategoryViewModel category)
+        {
+            return new CategoryModel()
+            {
+                ID = category.ID,
+                Name = category.Name,
+                ParentID = category.ParentID,
                 DisplayOrder = category.DisplayOrder,
                 Description = category.Description
             };
