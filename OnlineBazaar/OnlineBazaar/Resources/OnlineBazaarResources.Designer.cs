@@ -97,7 +97,7 @@ namespace OnlineBazaar.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Create.
+        ///   Looks up a localized string similar to Save changes.
         /// </summary>
         public static string CategoryCreateViewBtn {
             get {
@@ -187,7 +187,7 @@ namespace OnlineBazaar.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Create category.
+        ///   Looks up a localized string similar to New category.
         /// </summary>
         public static string CreateCategoryPanelTittle {
             get {

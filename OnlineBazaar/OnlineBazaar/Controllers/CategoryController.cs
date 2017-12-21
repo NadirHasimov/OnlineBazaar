@@ -135,5 +135,9 @@ namespace OnlineBazaar.Controllers
                 Description = category.Description
             };
         }
+        public ActionResult Test()
+        {
+            return View();
+        }
     }
 }

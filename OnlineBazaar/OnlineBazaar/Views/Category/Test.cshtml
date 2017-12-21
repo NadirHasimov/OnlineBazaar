@@ -1,4 +1,44 @@
-﻿
-@{
-    ViewBag.Title = "Test";
+﻿@{ 
+    Layout = null;
 }
+<html>
+<head>
+    <link href="~/Scripts/theme/jquery-ui/jquery-ui.css" rel="stylesheet" />
+
+    <link href="~/Content/theme/css/neon-core.css" rel="stylesheet" />
+    <link href="~/Content/theme/css/neon-theme.css" rel="stylesheet" />
+    @*<link href="~/Content/theme/css/neon-forms.css" rel="stylesheet" />*@
+    <link href="~/Content/theme/css/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/theme/font-icons/entypo/css/entypo.css" rel="stylesheet" />
+    <link href="~/Content/theme/css/select2.min.css" rel="stylesheet" />
+
+    <script src="~/Scripts/theme/jquery-1.11.3.min.js"></script>
+    <script src="~/Scripts/theme/select2.min.js"></script>
+    <script src="~/Scripts/theme/jquery.validate.min.js"></script>
+    <script src="~/Scripts/theme/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/Scripts/theme/jquery-ui/jquery-ui.min.js"></script>
+    <script src="~/Scripts/theme/bootstrap.min.js"></script>
+    <script src="~/Scripts/theme/joinable.js"></script>
+    <script src="~/Scripts/theme/resizeable.js"></script>
+    <script src="~/Scripts/theme/neon-api.js"></script>
+    <script src="~/Scripts/theme/neon-custom.js"></script>
+    <script src="~/Scripts/theme/neon-demo.js"></script>
+    <script src="~/Scripts/theme/toastr.js"></script>
+    <script src="~/Scripts/theme/TweenMax.min.js"></script>
+    <script src="~/Scripts/theme/jquery.cookie.js"></script>
+    <script src="~/Scripts/custom/common.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.SelectList').select2();
+        });
+    </script>
+</head>
+<body>
+            <select class="SelectList" style="width:200px;">
+                <option>Test1</option>
+                <option>Test2</option>
+                <option>Test3</option>
+                <option>Test4</option>
+            </select>
+</body>
+</html>

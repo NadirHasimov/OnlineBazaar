@@ -3,6 +3,7 @@ $(document).ready(function () {
     createDataTable();
     createEventHandlers();
     showNotification();
+
 });
 
 function createDataTable() {
@@ -22,7 +23,7 @@ function createDataTable() {
             { "width": "50%" },
             { "width": "15%" }
         ],
-        "CreatedRow": function (nRow, aData, iDataIndex) {
+        "fnCreatedRow": function (nRow, aData, iDataIndex) {
             $(nRow).children("td").css("white-space", "nowrap");
         },
         "drawCallback": function (settings) {

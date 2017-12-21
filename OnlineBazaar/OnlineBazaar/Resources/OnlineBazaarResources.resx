@@ -130,7 +130,7 @@
     <value>Categories</value>
   </data>
   <data name="CategoryCreateViewBtn" xml:space="preserve">
-    <value>Create</value>
+    <value>Save changes</value>
   </data>
   <data name="CategoryDesc" xml:space="preserve">
     <value>Description</value>
@@ -160,7 +160,7 @@
     <value>Create category | Catalog | Online Bazaar</value>
   </data>
   <data name="CreateCategoryPanelTittle" xml:space="preserve">
-    <value>Create category</value>
+    <value>New category</value>
   </data>
   <data name="CreateCategorySuccessMessage" xml:space="preserve">
     <value>Successfully created!</value>

@@ -21,7 +21,7 @@ namespace OnlineBazaar.DALC
             public const string Create = @"INSERT INTO CATEGORIES (name,parent_id,description,display_order,image_id) 
                                                        VALUES (:name,:parent_id,:description,:display_order,1)";
             public const string Update = @"UPDATE categories SET name=:name, parent_id=:parent_id,description=:description,
-                                                               display_order=:display_order WHERE category_id=:category_id";
+                                                               display_order=:display_order, updated_on = SYSDATE WHERE category_id=:category_id";
             public const string CheckChildExists = "SELECT COUNT(*) FROM categories WHERE parent_id=:id AND is_deleted = 0";
 
             public const string Delete = "UPDATE categories SET is_deleted = 1,updated_on = SYSDATE  WHERE category_id=:id";

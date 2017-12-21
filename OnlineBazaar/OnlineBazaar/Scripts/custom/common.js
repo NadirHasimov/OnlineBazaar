@@ -3,9 +3,11 @@ $(document).ready(function () {
     $('.sidebar-menu a[data-rel="collapse-sidebar"]').click(function () {
         sidebarStateHandler();
     });
+    var parentIndex = sessionStorage.getItem("index1") - 1;
+    var childIndex = sessionStorage.getItem("index2");
+    $('#main-menu').find("li").eq(parentIndex).addClass("active opened");
+    $('#main-menu li ul').find('li').eq(childIndex).addClass('active');
     sidebarMenuStateHandler();
-    console.log(localStorage.getItem("index1"));
-    console.log(localStorage.getItem("index2"));
 });
 
 var toastOpts = {
@@ -52,8 +54,7 @@ function sidebarMenuStateHandler() {
         var parent = $(this).parent();
         $(parent).addClass('active');
         $(parent).parent().parent().addClass('active');
-        localStorage.setItem("index1", $(this).parent().parent().index());
-        localStorage.setItem("index2", $(this).index());
-        e.preventDefault();
+        sessionStorage.setItem("index1", $(this).parent().parent().index());
+        sessionStorage.setItem("index2", $(this).parent().index());
     });
 }
