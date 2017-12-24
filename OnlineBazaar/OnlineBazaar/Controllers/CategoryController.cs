@@ -20,16 +20,25 @@ namespace OnlineBazaar.Controllers
 
         public ActionResult Edit(int id = 0)
         {
+            List<SelectListItem> parents = new List<SelectListItem>();
+            foreach (var parent in CategoryDALC.GetAll().Select(row => new { row.Id, row.Path }))
+            {
+                parents.Add(new SelectListItem
+                {
+                    Text = parent.Path,
+                    Value = parent.Id.ToString()
+                });
+            }
             CategoryViewModel model = new CategoryViewModel();
-            model.ParentCategories = CategoryDALC.GetParents();
             if (id == 0)
             {
+                model.ParentCategories = parents;
                 return View(model);
             }
             else
             {
-                model = MapToCategoryViewModel(CategoryDALC.GetByID(id));
-                model.ParentCategories = CategoryDALC.GetParents();
+                model = MapToCategoryViewModel(CategoryDALC.GetById(id));
+                model.ParentCategories = parents;
                 return View(model);
             }
         }
@@ -43,7 +52,7 @@ namespace OnlineBazaar.Controllers
                 return View();
             }
             CategoryModel model = MapToCategoryModel(viewModel);
-            if (model.ID == 0)
+            if (model.Id == 0)
             {
                 if (CategoryDALC.Create(model))
                 {
@@ -69,7 +78,7 @@ namespace OnlineBazaar.Controllers
             }
             TempData["success"] = success;
             TempData["message"] = message;
-            return RedirectToAction("/Index");
+            return RedirectToAction("Index");
         }
 
         [HttpPost]
@@ -103,9 +112,9 @@ namespace OnlineBazaar.Controllers
             return PartialView("_CategoriesList", model);
         }
 
-        public ActionResult CheckCategoryNameExists(string name,int ID)
+        public ActionResult CheckCategoryNameExists(string name, int id)
         {
-            if (CategoryDALC.CheckNameExists(name,ID))
+            if (CategoryDALC.CheckNameExists(name, id))
             {
                 return Json("Category name already exists!", JsonRequestBehavior.AllowGet);
             }
@@ -116,28 +125,24 @@ namespace OnlineBazaar.Controllers
         {
             return new CategoryViewModel()
             {
-                ID = category.ID,
+                Id = category.Id,
                 Name = category.Name,
-                ParentID = category.ParentID,
+                ParentId = category.ParentId,
                 Path = category.Path,
                 DisplayOrder = category.DisplayOrder,
-                Description = category.Description
+                Description = category.Description,
             };
         }
         private CategoryModel MapToCategoryModel(CategoryViewModel category)
         {
             return new CategoryModel()
             {
-                ID = category.ID,
+                Id = category.Id,
                 Name = category.Name,
-                ParentID = category.ParentID,
+                ParentId = category.ParentId,
                 DisplayOrder = category.DisplayOrder,
-                Description = category.Description
+                Description = category.Description,
             };
-        }
-        public ActionResult Test()
-        {
-            return View();
         }
     }
 }

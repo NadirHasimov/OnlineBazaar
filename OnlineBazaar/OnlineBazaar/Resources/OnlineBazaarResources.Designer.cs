@@ -97,11 +97,11 @@ namespace OnlineBazaar.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Save changes.
+        ///   Looks up a localized string similar to Description.
         /// </summary>
-        public static string CategoryCreateViewBtn {
+        public static string CategoryDecriptionLabel {
             get {
-                return ResourceManager.GetString("CategoryCreateViewBtn", resourceCulture);
+                return ResourceManager.GetString("CategoryDecriptionLabel", resourceCulture);
             }
         }
         
@@ -133,6 +133,15 @@ namespace OnlineBazaar.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Display order.
+        /// </summary>
+        public static string CategoryDisplayOrderLabel {
+            get {
+                return ResourceManager.GetString("CategoryDisplayOrderLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Save changes.
         /// </summary>
         public static string CategoryEditViewBtn {
@@ -160,11 +169,29 @@ namespace OnlineBazaar.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Name.
+        /// </summary>
+        public static string CategoryNameLabel {
+            get {
+                return ResourceManager.GetString("CategoryNameLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Parent.
         /// </summary>
         public static string CategoryParentField {
             get {
                 return ResourceManager.GetString("CategoryParentField", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Parent category.
+        /// </summary>
+        public static string CategoryParentLabel {
+            get {
+                return ResourceManager.GetString("CategoryParentLabel", resourceCulture);
             }
         }
         
@@ -180,23 +207,23 @@ namespace OnlineBazaar.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Create category | Catalog | Online Bazaar.
         /// </summary>
-        public static string CreateCategoryPageTittle {
+        public static string CreateCategoryPageTitle {
             get {
-                return ResourceManager.GetString("CreateCategoryPageTittle", resourceCulture);
+                return ResourceManager.GetString("CreateCategoryPageTitle", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to New category.
         /// </summary>
-        public static string CreateCategoryPanelTittle {
+        public static string CreateCategoryPanelTitle {
             get {
-                return ResourceManager.GetString("CreateCategoryPanelTittle", resourceCulture);
+                return ResourceManager.GetString("CreateCategoryPanelTitle", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Successfully created!.
+        ///   Looks up a localized string similar to Successfully created..
         /// </summary>
         public static string CreateCategorySuccessMessage {
             get {
@@ -232,7 +259,7 @@ namespace OnlineBazaar.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Successfully deleted!.
+        ///   Looks up a localized string similar to Successfully deleted..
         /// </summary>
         public static string DeleteCategorySuccessMessage {
             get {
@@ -241,7 +268,7 @@ namespace OnlineBazaar.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The number must be greater than zero!.
+        ///   Looks up a localized string similar to The number must be greater than zero..
         /// </summary>
         public static string DisplayOrderRangeErrorMessage {
             get {
@@ -250,7 +277,7 @@ namespace OnlineBazaar.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Display order field required!.
+        ///   Looks up a localized string similar to Display order field required..
         /// </summary>
         public static string DisplayOrderRequiredMessage {
             get {
@@ -270,23 +297,23 @@ namespace OnlineBazaar.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Edit Category | Catalog | Online Bazaar.
         /// </summary>
-        public static string EditCategoryPageTittle {
+        public static string EditCategoryPageTitle {
             get {
-                return ResourceManager.GetString("EditCategoryPageTittle", resourceCulture);
+                return ResourceManager.GetString("EditCategoryPageTitle", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Edit category.
         /// </summary>
-        public static string EditCategoryPanelTittle {
+        public static string EditCategoryPanelTitle {
             get {
-                return ResourceManager.GetString("EditCategoryPanelTittle", resourceCulture);
+                return ResourceManager.GetString("EditCategoryPanelTitle", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Name field required!.
+        ///   Looks up a localized string similar to Name field required..
         /// </summary>
         public static string NameRequiredMessage {
             get {

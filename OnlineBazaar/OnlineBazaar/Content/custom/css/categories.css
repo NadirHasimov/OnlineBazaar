@@ -24,12 +24,20 @@ td.desc .popover {
 .edit-page a {
     font-size: medium;
 }
-.edit-page a{
+
+.edit-page .pull-right a{
     color:dodgerblue;
+    margin-right:20px;
+    padding-top:30px;
 }
+
 .edit-page .form-group{
     margin-bottom:20px;
 }
+
 .edit-page .panel-body{
     padding:20px;
+}
+.edit-page .select2-container .select2-choice > .select2-chosen{
+    font-size:12px;
 }

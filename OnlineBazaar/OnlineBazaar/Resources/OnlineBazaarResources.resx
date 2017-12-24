@@ -129,8 +129,8 @@
   <data name="CategoriesTitle" xml:space="preserve">
     <value>Categories</value>
   </data>
-  <data name="CategoryCreateViewBtn" xml:space="preserve">
-    <value>Save changes</value>
+  <data name="CategoryDecriptionLabel" xml:space="preserve">
+    <value>Description</value>
   </data>
   <data name="CategoryDesc" xml:space="preserve">
     <value>Description</value>
@@ -139,6 +139,9 @@
     <value>Description</value>
   </data>
   <data name="CategoryDisplayOrderField" xml:space="preserve">
+    <value>Display order</value>
+  </data>
+  <data name="CategoryDisplayOrderLabel" xml:space="preserve">
     <value>Display order</value>
   </data>
   <data name="CategoryEditViewBtn" xml:space="preserve">
@@ -150,20 +153,26 @@
   <data name="CategoryNameField" xml:space="preserve">
     <value>Name</value>
   </data>
+  <data name="CategoryNameLabel" xml:space="preserve">
+    <value>Name</value>
+  </data>
   <data name="CategoryParentField" xml:space="preserve">
     <value>Parent</value>
+  </data>
+  <data name="CategoryParentLabel" xml:space="preserve">
+    <value>Parent category</value>
   </data>
   <data name="CreateCategoryFailureMessage" xml:space="preserve">
     <value>Error occured while creating category! Please try again.</value>
   </data>
-  <data name="CreateCategoryPageTittle" xml:space="preserve">
+  <data name="CreateCategoryPageTitle" xml:space="preserve">
     <value>Create category | Catalog | Online Bazaar</value>
   </data>
-  <data name="CreateCategoryPanelTittle" xml:space="preserve">
+  <data name="CreateCategoryPanelTitle" xml:space="preserve">
     <value>New category</value>
   </data>
   <data name="CreateCategorySuccessMessage" xml:space="preserve">
-    <value>Successfully created!</value>
+    <value>Successfully created.</value>
   </data>
   <data name="DeleteButtonText" xml:space="preserve">
     <value>Delete</value>
@@ -175,25 +184,25 @@
     <value>Error occured while deleting this category! Please try again.</value>
   </data>
   <data name="DeleteCategorySuccessMessage" xml:space="preserve">
-    <value>Successfully deleted!</value>
+    <value>Successfully deleted.</value>
   </data>
   <data name="DisplayOrderRangeErrorMessage" xml:space="preserve">
-    <value>The number must be greater than zero!</value>
+    <value>The number must be greater than zero.</value>
   </data>
   <data name="DisplayOrderRequiredMessage" xml:space="preserve">
-    <value>Display order field required!</value>
+    <value>Display order field required.</value>
   </data>
   <data name="EditButtonText" xml:space="preserve">
     <value>Edit</value>
   </data>
-  <data name="EditCategoryPageTittle" xml:space="preserve">
+  <data name="EditCategoryPageTitle" xml:space="preserve">
     <value>Edit Category | Catalog | Online Bazaar</value>
   </data>
-  <data name="EditCategoryPanelTittle" xml:space="preserve">
+  <data name="EditCategoryPanelTitle" xml:space="preserve">
     <value>Edit category</value>
   </data>
   <data name="NameRequiredMessage" xml:space="preserve">
-    <value>Name field required!</value>
+    <value>Name field required.</value>
   </data>
   <data name="NewCategoryButtonText" xml:space="preserve">
     <value>New category</value>

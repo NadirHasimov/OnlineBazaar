@@ -15,7 +15,7 @@
         {
             <tr>
                 <td hidden>
-                    @category.ID
+                    @category.Id
                 </td>
                 <td>
                     @category.Path
@@ -24,11 +24,11 @@
                     @GenDescColumn(category.Description)                    
                 </td>
                 <td>
-                    <a href="@Url.Action("Edit","Category",new { category.ID})" class="btn btn-default btn-icon icon-left btn-xs">
+                    <a href="@Url.Action("Edit","Category",new { category.Id})" class="btn btn-default btn-icon icon-left btn-xs">
                         <i class="entypo-pencil"></i>
                         @OnlineBazaarResources.EditButtonText
                     </a>
-                    <a href="@Url.Action("Delete", "Category", new { category.ID })" class="btn btn-danger btn-icon icon-left btn-xs delete">
+                    <a href="@Url.Action("Delete", "Category", new { category.Id })" class="btn btn-danger btn-icon icon-left btn-xs delete">
                         <i class="entypo-cancel"></i>
                         @OnlineBazaarResources.DeleteButtonText
                     </a>

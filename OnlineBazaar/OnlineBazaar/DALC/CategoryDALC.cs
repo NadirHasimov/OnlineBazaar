@@ -29,7 +29,8 @@ namespace OnlineBazaar.DALC.Category
             }
             return dt.AsEnumerable().Select(row => new CategoryModel(row)).ToList();
         }
-        public static CategoryModel GetByID(int ID)
+
+        public static CategoryModel GetById(int id)
         {
             DataTable dt = new DataTable();
             using (OracleConnection con = new OracleConnection(AppConfig.ConnectionString))
@@ -40,12 +41,12 @@ namespace OnlineBazaar.DALC.Category
                     cmd.CommandType = CommandType.Text;
                     cmd.CommandText = SqlQueries.Category.GetByID;
                     cmd.BindByName = true;
-                    cmd.Parameters.Add(new OracleParameter("ID", ID));
+                    cmd.Parameters.Add(new OracleParameter("id", id));
                     OracleDataAdapter oda = new OracleDataAdapter(cmd);
                     oda.Fill(dt);
                 }
             }
-            return dt.AsEnumerable().Select(row => new CategoryModel(row)).FirstOrDefault();
+            return dt.AsEnumerable().Select(row => new CategoryModel(row)).SingleOrDefault();
         }
 
         public static bool Create(CategoryModel model)
@@ -60,10 +61,10 @@ namespace OnlineBazaar.DALC.Category
                     cmd.BindByName = true;
                     OracleParameter[] oracleParameters = new OracleParameter[]
                     {
-                        new OracleParameter("name",model.Name),
-                        new OracleParameter("parent_id",model.ParentID),
-                        new OracleParameter("description",model.Description),
-                        new OracleParameter("display_order",model.DisplayOrder)
+                        new OracleParameter("NAME",model.Name),
+                        new OracleParameter("PARENT_ID",model.ParentId),
+                        new OracleParameter("DESCRIPTION",model.Description),
+                        new OracleParameter("DISPLAY_ORDER",model.DisplayOrder)
                     };
                     cmd.Parameters.AddRange(oracleParameters);
                     var result = cmd.ExecuteNonQuery();
@@ -82,11 +83,11 @@ namespace OnlineBazaar.DALC.Category
                     cmd.CommandText = SqlQueries.Category.Update;
                     cmd.BindByName = true;
                     OracleParameter[] oracleParams = new OracleParameter[] {
-                        new OracleParameter("name",model.Name),
-                        new OracleParameter("parent_id",model.ParentID),
-                        new OracleParameter("description",model.Description),
-                        new OracleParameter("display_order",model.DisplayOrder),
-                        new OracleParameter("category_id",model.ID)
+                        new OracleParameter("NAME",model.Name),
+                        new OracleParameter("PARENT_ID",model.ParentId),
+                        new OracleParameter("DESCRIPTION",model.Description),
+                        new OracleParameter("DISPLAY_ORDER",model.DisplayOrder),
+                        new OracleParameter("CATEGORY_ID",model.Id)
                     };
                     cmd.Parameters.AddRange(oracleParams);
                     var result = cmd.ExecuteNonQuery();
@@ -95,34 +96,6 @@ namespace OnlineBazaar.DALC.Category
             }
         }
 
-        public static List<SelectListItem> GetParents()
-        {
-            List<SelectListItem> parents = new List<SelectListItem>();
-            using (OracleConnection con = new OracleConnection(AppConfig.ConnectionString))
-            {
-                con.Open();
-                using (OracleCommand cmd = con.CreateCommand())
-                {
-                    cmd.CommandType = CommandType.Text;
-                    cmd.CommandText = SqlQueries.Category.GetParents;
-                    OracleDataReader reader = cmd.ExecuteReader();
-                    parents.Add(new SelectListItem
-                    {
-                        Text = "None",
-                        Value = ""
-                    });
-                    while (reader.Read())
-                    {
-                        parents.Add(new SelectListItem
-                        {
-                            Text = reader["Path"].ToString(),
-                            Value = reader["category_id"].ToString(),
-                        });
-                    }
-                }
-            }
-            return parents;
-        }
         public static bool CheckChildExists(int id)
         {
             bool result;
@@ -134,7 +107,7 @@ namespace OnlineBazaar.DALC.Category
                     cmd.CommandType = CommandType.Text;
                     cmd.CommandText = SqlQueries.Category.CheckChildExists;
                     cmd.BindByName = true;
-                    cmd.Parameters.Add(new OracleParameter("id", id));
+                    cmd.Parameters.Add(new OracleParameter("ID", id));
                     result = int.Parse(cmd.ExecuteScalar().ToString()) > 0;
                 }
             }
@@ -152,7 +125,7 @@ namespace OnlineBazaar.DALC.Category
                     cmd.CommandType = CommandType.Text;
                     cmd.CommandText = SqlQueries.Category.Delete;
                     cmd.BindByName = true;
-                    cmd.Parameters.Add(new OracleParameter("id", id));
+                    cmd.Parameters.Add(new OracleParameter("ID", id));
                     int deletedRows = 0;
                     deletedRows = cmd.ExecuteNonQuery();
                     result = deletedRows == 1;
@@ -163,7 +136,6 @@ namespace OnlineBazaar.DALC.Category
 
         public static bool CheckNameExists(string name, int id)
         {
-
             using (OracleConnection con = new OracleConnection(AppConfig.ConnectionString))
             {
                 con.Open();
@@ -171,7 +143,7 @@ namespace OnlineBazaar.DALC.Category
                 {
                     cmd.CommandType = CommandType.Text;
                     cmd.CommandText = SqlQueries.Category.CheckNameExists;
-                    cmd.Parameters.Add(new OracleParameter("name", name));
+                    cmd.Parameters.Add(new OracleParameter("NAME", name));
                     cmd.BindByName = true;
                     int result = Convert.ToInt32((cmd.ExecuteScalar()) ?? 0);
                     if (result == id)

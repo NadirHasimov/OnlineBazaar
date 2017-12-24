@@ -4,67 +4,88 @@
 
 @section Styles{
     <link href="~/Content/custom/css/categories.css" rel="stylesheet" />
+    <link href="~/Content/theme/css/select2-bootstrap.css" rel="stylesheet" />
     <link href="~/Content/theme/css/select2.css" rel="stylesheet" />
-    <link href="~/Content/theme/css/select2.min.css" rel="stylesheet" />
 }
 @section Scripts{
     <script src="~/Scripts/theme/select2.min.js"></script>
-    <script src="~/Scripts/custom/category-edit.js"></script>
+    <script src="~/Scripts/theme/inputmask.js"></script>
+    <script src="~/Scripts/theme/jquery.inputmask.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('select').select2({
+                placeholder: "Select category"
+            });
+            $('#displayOrder').inputmask({
+                regex: "[0-9]*",
+                isComplete: function (buffer, opts) {
+                    return new RegExp(opts.regex).test(buffer.join(''));
+                }
+            });
+            //$("#displayOrder").keypress(function (e) {
+            //    if (String.fromCharCode(e.keyCode).match(/[^0-9]/g)) return false;
+            //});
+        });
+    </script>
+
 }
 @{
-    string pageTittle = OnlineBazaarResources.EditCategoryPageTittle,
-           panelTittle = OnlineBazaarResources.EditCategoryPanelTittle,
-           btnText = OnlineBazaarResources.CategoryEditViewBtn;
-    if (Model.ID == 0)
+    string pageTitle = OnlineBazaarResources.EditCategoryPageTitle,
+           panelTitle = OnlineBazaarResources.EditCategoryPanelTitle;
+    if (Model.Id == 0)
     {
-        pageTittle = OnlineBazaarResources.CreateCategoryPageTittle;
-        panelTittle = OnlineBazaarResources.CreateCategoryPanelTittle;
-        btnText = OnlineBazaarResources.CategoryCreateViewBtn;
+        pageTitle = OnlineBazaarResources.CreateCategoryPageTitle;
+        panelTitle = OnlineBazaarResources.CreateCategoryPanelTitle;
     }
 
-    ViewBag.Title = pageTittle;
+    ViewBag.Title = pageTitle;
 }
 <div class="row edit-page">
     <div class="col-md-6">
         <div class="panel panel-default">
             <div class=" panel-heading">
                 <div class="panel-title">
-                    @panelTittle
+                    @panelTitle
                 </div>
             </div>
             <div class="panel-body">
                 @using (Html.BeginForm("Edit", "Category", FormMethod.Post, Model))
                 {
-                    @Html.TextBoxFor(model => model.ID, new { style = "display:none" })
+                    @Html.HiddenFor(model=>model.Id)
                     <div class="form-group">
-                        <label class="control-label">Parent</label>
-                        @Html.DropDownListFor(model => model.ParentID, Model.ParentCategories, new { @class = "form-control", @id = "parentList" })
-                        <span>@Html.ValidationMessageFor(model => model.ParentID)</span>
+                        <label class="control-label">@OnlineBazaarResources.CategoryParentLabel</label>
+                        @{
+                            List<SelectListItem> parents = new List<SelectListItem>();
+                            parents.Add(new SelectListItem { Text = "None", Value = "" });
+                            parents.AddRange(Model.ParentCategories);
+                        }
+                        @Html.DropDownListFor(model => model.ParentId, parents, "")
+                        <span>@Html.ValidationMessageFor(model => model.ParentId)</span>
                     </div>
                     <div class="form-group">
-                        <label class="control-label">Name</label>
-                        @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                        <label class="control-label">@OnlineBazaarResources.CategoryNameLabel</label>
+                        @Html.TextBoxFor(model => model.Name, new { @class = "form-control" })
                         <span>@Html.ValidationMessageFor(model => model.Name)</span>
                     </div>
                     <div class="form-group">
-                        <label class="control-label">Display order</label>
-                        @Html.EditorFor(model => model.DisplayOrder, new { htmlattributes = new { @class = "form-control", @id = "displayOrder" } })
+                        <label class="control-label">@OnlineBazaarResources.CategoryDisplayOrderLabel</label>
+                        @Html.TextBoxFor(model => model.DisplayOrder, new { @class = "form-control", @id = "displayOrder" })
                         <span>@Html.ValidationMessageFor(model => model.DisplayOrder)</span>
                     </div>
                     <div class="form-group">
-                        <label class="control-label">Description</label>
+                        <label class="control-label">@OnlineBazaarResources.CategoryDecriptionLabel</label>
                         @Html.TextAreaFor(model => model.Description, new { @class = "form-control autogrow" })
                     </div>
                     <div class="pull-right">
                         <button type="submit" id="submit" name="btnSubmit" class="btn btn-green">
-                            <i class="entypo-doc-text"></i>
-                            @btnText
+                            <i class="entypo-floppy"></i>
+                            @OnlineBazaarResources.CategoryEditViewBtn
                         </button>
                     </div>
-                    <div class="pull-left">
+                    <div class="pull-right">
                         @Html.ActionLink("Cancel", "Index", "Category")
                     </div>
-                }
+                            }
             </div>
         </div>
     </div>

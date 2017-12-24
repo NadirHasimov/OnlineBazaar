@@ -12,12 +12,12 @@ namespace OnlineBazaar.Models
 {
     public class CategoryViewModel
     {
-        public int ID { get; set; }
+        public int Id { get; set; }
 
         [Required(ErrorMessageResourceType = typeof(OnlineBazaarResources),
            ErrorMessageResourceName = "NameRequiredMessage")]
         [Display(Name = "CategoryNameField", ResourceType = typeof(OnlineBazaarResources))]
-        [Remote("CheckCategoryNameExists","Category",AdditionalFields ="ID")]
+        [Remote("CheckCategoryNameExists","Category",AdditionalFields ="Id")]
         public string Name { get; set; }
 
         [Display(Name = "CategoryDisplayOrderField", ResourceType = typeof(OnlineBazaarResources))]
@@ -33,7 +33,7 @@ namespace OnlineBazaar.Models
         public string Description { get; set; }
 
         [Display(Name = "CategoryParentField", ResourceType = typeof(OnlineBazaarResources))]
-        public int? ParentID { get; set; }
+        public int? ParentId { get; set; }
 
         public IEnumerable<SelectListItem> ParentCategories { get; set; }
     }
