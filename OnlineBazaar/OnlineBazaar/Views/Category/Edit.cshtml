@@ -51,7 +51,7 @@
             <div class="panel-body">
                 @using (Html.BeginForm("Edit", "Category", FormMethod.Post, Model))
                 {
-                    @Html.HiddenFor(model=>model.Id)
+                    @Html.HiddenFor(model => model.Id)
                     <div class="form-group">
                         <label class="control-label">@OnlineBazaarResources.CategoryParentLabel</label>
                         @{

@@ -121,7 +121,6 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\custom\categories.js" />
-    <Content Include="Scripts\custom\category-edit.js" />
     <Content Include="Scripts\custom\common.js" />
     <Content Include="Scripts\theme\inputmask.js" />
     <Content Include="Scripts\theme\jquery.inputmask.js" />

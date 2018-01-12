@@ -19,13 +19,10 @@ function createDataTable() {
         "autoWidth": false,
         "columns": [
             { "visible": false },
-            { "width": "35%" },
+            { "width": "30%" },
             { "width": "50%" },
-            { "width": "15%" }
+            { "width": "20%" }
         ],
-        "fnCreatedRow": function (nRow, aData, iDataIndex) {
-            $(nRow).children("td").css("white-space", "nowrap");
-        },
         "drawCallback": function (settings) {
             enableDescPopover();
         }
@@ -40,7 +37,6 @@ function enableDescPopover() {
 }
 
 function createEventHandlers() {
-
     $('#categories-table-container').on('click', 'a.delete', function (e) {
         e.preventDefault();
         if (confirm('Are you sure?')) {

@@ -1,15 +1,20 @@
-﻿/* Toast nofitication options for top right position */
-$(document).ready(function () {
+﻿$(document).ready(function () {
     $('.sidebar-menu a[data-rel="collapse-sidebar"]').click(function () {
         sidebarStateHandler();
     });
-    var parentIndex = sessionStorage.getItem("index1") - 1;
-    var childIndex = sessionStorage.getItem("index2");
-    $('#main-menu').find("li").eq(parentIndex).addClass("active opened");
-    $('#main-menu li ul').find('li').eq(childIndex).addClass('active');
+    $('#main-menu a').each(function (n) {
+        $(this).attr('id', n);
+    });
+    var activeLinkId = sessionStorage.getItem("activeLinkId");
+    if (activeLinkId != null) {
+        $('#' + activeLinkId + '').parents('li').addClass('active');
+        $('#' + activeLinkId + '').parent().parents('li').addClass('opened');
+        $('#' + activeLinkId + '').parents('ul').addClass('visible');
+    }
     sidebarMenuStateHandler();
 });
 
+/* Toast nofitication options for top right position */
 var toastOpts = {
     "closeButton": true,
     "debug": false,
@@ -49,12 +54,8 @@ function sidebarStateHandler() {
 }
 
 function sidebarMenuStateHandler() {
-    $('#main-menu li ul a[href]').on('click', function (e) {
-        $('#main-menu .active').removeClass('active');
-        var parent = $(this).parent();
-        $(parent).addClass('active');
-        $(parent).parent().parent().addClass('active');
-        sessionStorage.setItem("index1", $(this).parent().parent().index());
-        sessionStorage.setItem("index2", $(this).parent().index());
+    $('#main-menu li a[href]').on('click', function (e) {
+        var activeLinkId = $(this).attr('id');
+        sessionStorage.setItem("activeLinkId", activeLinkId);
     });
 }
