@@ -7,6 +7,11 @@ using OnlineBazaar.DomainModels;
 using OnlineBazaar.DALC.Category;
 using OnlineBazaar.Models;
 using OnlineBazaar.Resources;
+using System.Data;
+using Oracle.ManagedDataAccess.Client;
+using OnlineBazaar.DALC;
+using ClosedXML.Excel;
+using System.IO;
 
 namespace OnlineBazaar.Controllers
 {
@@ -102,7 +107,6 @@ namespace OnlineBazaar.Controllers
             {
                 message = OnlineBazaarResources.DeleteCategoryChildExistsMessage;
             }
-
             return Json(new { result, message });
         }
 
@@ -120,7 +124,43 @@ namespace OnlineBazaar.Controllers
             }
             return Json(true, JsonRequestBehavior.AllowGet);
         }
+       
+        public void ExportToExcell()
+        {
+            DataTable dt = new DataTable();
+            dt.TableName = "Categories";
+            using (OracleConnection con = new OracleConnection(AppConfig.ConnectionString))
+            {
+                con.Open();
+                using (OracleCommand cmd = con.CreateCommand())
+                {
+                    cmd.CommandType = CommandType.Text;
+                    cmd.CommandText = SqlQueries.Category.GetAll;
+                    OracleDataAdapter oda = new OracleDataAdapter(cmd);
+                    oda.Fill(dt);
+                }
+            }
 
+            using (XLWorkbook wb = new XLWorkbook())
+            {
+                wb.Worksheets.Add(dt);
+                wb.Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Center;
+                wb.Style.Font.Bold = true;
+
+                Response.Clear();
+                Response.Buffer = true;
+                Response.Charset = "";
+                Response.ContentType = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
+                Response.AddHeader("content-disposition", "attachment;filename= Categories Report.xlsx");
+
+                using (MemoryStream memoryStream=new MemoryStream())
+                {
+                    wb.SaveAs(memoryStream);
+                    memoryStream.WriteTo(Response.OutputStream);
+                    Response.End();
+                }
+            }
+        }
         private CategoryViewModel MapToCategoryViewModel(CategoryModel category)
         {
             return new CategoryViewModel()
